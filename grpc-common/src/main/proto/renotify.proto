@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package renotify.grpc;
+
+option java_multiple_files = true;
+
+message GrpcFileSubscription {
+
+  string filePath = 1;
+  int32 events = 2;
+}
+
+message Empty {
+}
+
+message GrpcNotification {
+  string file = 1;
+  string context = 2;
+  int32 pendingEvents = 3;
+}
+
+service Renotify {
+
+  rpc register(GrpcFileSubscription) returns (GrpcNotification);
+  rpc streamNotifications(Empty) returns (stream GrpcNotification);
+}
