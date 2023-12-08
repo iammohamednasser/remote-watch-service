@@ -1,15 +1,15 @@
-package renotify.client.grpc;
+package imnasser.projects.rfwatcher.client.grpc;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
 
-import renotify.client.Client;
-import renotify.client.FileNotificationConsumer;
+import imnasser.projects.rfwatcher.client.Client;
+import imnasser.projects.rfwatcher.client.FileNotificationConsumer;
 import renotify.grpc.Empty;
 import renotify.grpc.GrpcFileSubscription;
-import renotify.common.FileSubscription;
-import renotify.common.Notification;
+import imnasser.projects.rfwatcher.common.FileSubscription;
+import imnasser.projects.rfwatcher.common.Notification;
 import renotify.grpc.GrpcNotification;
 import renotify.grpc.RenotifyGrpc;
 

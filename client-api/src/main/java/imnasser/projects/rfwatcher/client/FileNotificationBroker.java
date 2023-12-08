@@ -1,6 +1,6 @@
-package renotify.client;
+package imnasser.projects.rfwatcher.client;
 
-import renotify.common.FileSubscription;
+import imnasser.projects.rfwatcher.common.FileSubscription;
 
 import java.util.List;
 import java.util.Map;
