@@ -1,4 +1,4 @@
-package imnasser.projects.rfwatcher.common;
+package imnasser.projects.rws;
 
 import java.nio.file.Path;
 

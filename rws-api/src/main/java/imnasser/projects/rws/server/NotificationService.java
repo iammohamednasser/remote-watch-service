@@ -1,6 +1,6 @@
-package imnasser.projects.rfwatcher.server;
+package imnasser.projects.rws.server;
 
-import imnasser.projects.rfwatcher.common.Notification;
+import imnasser.projects.rws.Notification;
 
 import java.io.IOException;
 import java.nio.file.Path;

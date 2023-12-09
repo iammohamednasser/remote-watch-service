@@ -1,6 +1,6 @@
-package imnasser.projects.rfwatcher.client;
+package imnasser.projects.rws.client;
 
-import imnasser.projects.rfwatcher.common.FileSubscription;
+import imnasser.projects.rws.FileSubscription;
 
 
 public interface Client {

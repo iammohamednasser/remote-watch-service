@@ -2,12 +2,12 @@ package imnasser.projects.rfwatcher.grpc.server;
 
 import io.grpc.stub.StreamObserver;
 
-import renotify.grpc.Empty;
-import imnasser.projects.rfwatcher.common.Notification;
-import renotify.grpc.GrpcFileSubscription;
-import renotify.grpc.GrpcNotification;
-import renotify.grpc.RenotifyGrpc;
-import imnasser.projects.rfwatcher.server.NotificationServiceDefaultImpl;
+import imnasser.projects.rws.grpc.Empty;
+import imnasser.projects.rws.Notification;
+import imnasser.projects.rws.grpc.GrpcFileSubscription;
+import imnasser.projects.rws.grpc.GrpcNotification;
+import imnasser.projects.rws.grpc.RenotifyGrpc;
+import imnasser.projects.rws.server.NotificationServiceDefaultImpl;
 
 import java.io.IOException;
 import java.nio.file.Path;

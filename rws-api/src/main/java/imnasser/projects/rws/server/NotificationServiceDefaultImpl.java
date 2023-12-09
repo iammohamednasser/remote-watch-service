@@ -1,7 +1,8 @@
-package imnasser.projects.rfwatcher.server;
+package imnasser.projects.rws.server;
 
 
-import imnasser.projects.rfwatcher.common.Notification;
+import imnasser.projects.rws.Notification;
+import imnasser.projects.rws.FileEventType;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

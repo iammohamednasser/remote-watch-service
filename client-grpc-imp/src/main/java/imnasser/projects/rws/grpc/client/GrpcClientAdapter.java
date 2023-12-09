@@ -1,17 +1,17 @@
-package imnasser.projects.rfwatcher.client.grpc;
+package imnasser.projects.rws.grpc.client;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
 
-import imnasser.projects.rfwatcher.client.Client;
-import imnasser.projects.rfwatcher.client.FileNotificationConsumer;
-import renotify.grpc.Empty;
-import renotify.grpc.GrpcFileSubscription;
-import imnasser.projects.rfwatcher.common.FileSubscription;
-import imnasser.projects.rfwatcher.common.Notification;
-import renotify.grpc.GrpcNotification;
-import renotify.grpc.RenotifyGrpc;
+import imnasser.projects.rws.client.Client;
+import imnasser.projects.rws.client.FileNotificationConsumer;
+import imnasser.projects.rws.grpc.Empty;
+import imnasser.projects.rws.grpc.GrpcFileSubscription;
+import imnasser.projects.rws.FileSubscription;
+import imnasser.projects.rws.Notification;
+import imnasser.projects.rws.grpc.GrpcNotification;
+import imnasser.projects.rws.grpc.RenotifyGrpc;
 
 import java.net.InetSocketAddress;
 import java.nio.file.Paths;

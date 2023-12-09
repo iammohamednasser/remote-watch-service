@@ -1,4 +1,4 @@
-package imnasser.projects.rfwatcher.server;
+package imnasser.projects.rws;
 
 public final class FileEventType {
 

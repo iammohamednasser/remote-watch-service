@@ -4,16 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>imnasser.projects.rfwatcher</groupId>
-    <artifactId>remote-file-watcher</artifactId>
+    <groupId>imnasser.projects.rws</groupId>
+    <artifactId>remote-watch-service</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>client-api</module>
-        <module>server-api</module>
         <module>grpc-common</module>
         <module>client-grpc-imp</module>
         <module>server-grpc-impl</module>
+        <module>rws-api</module>
     </modules>
 
     <properties>
