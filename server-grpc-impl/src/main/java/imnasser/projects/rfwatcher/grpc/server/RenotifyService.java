@@ -6,14 +6,14 @@ import imnasser.projects.rws.grpc.Empty;
 import imnasser.projects.rws.Notification;
 import imnasser.projects.rws.grpc.GrpcFileSubscription;
 import imnasser.projects.rws.grpc.GrpcNotification;
-import imnasser.projects.rws.grpc.RenotifyGrpc;
+import imnasser.projects.rws.grpc.RemoteWatchServiceGrpc;
 import imnasser.projects.rws.server.NotificationServiceDefaultImpl;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class RenotifyService extends RenotifyGrpc.RenotifyImplBase {
+public class RenotifyService extends RemoteWatchServiceGrpc.RemoteWatchServiceImplBase {
 
     NotificationServiceDefaultImpl notificationServiceDefaultImpl = new NotificationServiceDefaultImpl();
 
@@ -41,7 +41,7 @@ public class RenotifyService extends RenotifyGrpc.RenotifyImplBase {
     public void streamNotifications(Empty request, StreamObserver<GrpcNotification> responseObserver) {
         while (true) {
             try {
-                Notification notification = this.notificationServiceDefaultImpl.read();
+                Notification notification = this.notificationServiceDefaultImpl.get();
 
                 responseObserver.onNext(grpcNotification(notification));
             } catch (InterruptedException e) {

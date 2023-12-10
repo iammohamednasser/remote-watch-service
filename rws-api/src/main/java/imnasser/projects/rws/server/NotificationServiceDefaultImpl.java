@@ -76,7 +76,7 @@ public class NotificationServiceDefaultImpl implements NotificationService {
         if (includeFile(file))  this.watchKeys.remove(file.toString()).cancel();
     }
 
-    public Notification read() throws InterruptedException {
+    public Notification get() throws InterruptedException {
         checkIfClosed();
         if (this.pendingEventQueue.isEmpty() && this.active != null) {
             this.active.reset();

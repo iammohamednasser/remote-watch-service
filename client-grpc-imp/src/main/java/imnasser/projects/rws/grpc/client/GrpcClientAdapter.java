@@ -11,7 +11,7 @@ import imnasser.projects.rws.grpc.GrpcFileSubscription;
 import imnasser.projects.rws.FileSubscription;
 import imnasser.projects.rws.Notification;
 import imnasser.projects.rws.grpc.GrpcNotification;
-import imnasser.projects.rws.grpc.RenotifyGrpc;
+import imnasser.projects.rws.grpc.RemoteWatchServiceGrpc;
 
 import java.net.InetSocketAddress;
 import java.nio.file.Paths;
@@ -20,12 +20,12 @@ public class GrpcClientAdapter implements Client {
 
     // private final ManagedChannel channel;
 
-    private final RenotifyGrpc.RenotifyStub stub;
+    private final RemoteWatchServiceGrpc.RemoteWatchServiceStub stub;
 
     private static final Empty EMPTY = Empty.newBuilder().build();
 
     private GrpcClientAdapter(ManagedChannel channel) {
-        this.stub = RenotifyGrpc.newStub(channel);
+        this.stub = RemoteWatchServiceGrpc.newStub(channel);
     }
 
     public static GrpcClientAdapter createClient(InetSocketAddress serverAddress) {

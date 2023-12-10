@@ -12,7 +12,10 @@ public interface NotificationService {
 
     public void remove(Path file);
 
-    public Notification read() throws InterruptedException;
+    /*
+     * blocks until a file event appears.
+     */
+    public Notification get() throws InterruptedException;
 
     public void close() throws IOException;
 
