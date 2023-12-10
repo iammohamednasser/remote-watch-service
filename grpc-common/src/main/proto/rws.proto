@@ -19,7 +19,7 @@ message GrpcNotification {
   int32 pendingEvents = 3;
 }
 
-service RemoteWatchService {
+service WatchService {
 
   rpc register(GrpcFileSubscription) returns (GrpcNotification);
   rpc streamNotifications(Empty) returns (stream GrpcNotification);

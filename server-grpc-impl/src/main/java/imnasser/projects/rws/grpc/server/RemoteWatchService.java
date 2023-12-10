@@ -1,23 +1,24 @@
-package imnasser.projects.rfwatcher.grpc.server;
+package imnasser.projects.rws.grpc.server;
 
+import imnasser.projects.rws.grpc.WatchServiceGrpc;
+import imnasser.projects.rws.server.NotificationService;
 import io.grpc.stub.StreamObserver;
 
 import imnasser.projects.rws.grpc.Empty;
 import imnasser.projects.rws.Notification;
 import imnasser.projects.rws.grpc.GrpcFileSubscription;
 import imnasser.projects.rws.grpc.GrpcNotification;
-import imnasser.projects.rws.grpc.RemoteWatchServiceGrpc;
-import imnasser.projects.rws.server.NotificationServiceDefaultImpl;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class RenotifyService extends RemoteWatchServiceGrpc.RemoteWatchServiceImplBase {
+public class RemoteWatchService extends WatchServiceGrpc.WatchServiceImplBase {
 
-    NotificationServiceDefaultImpl notificationServiceDefaultImpl = new NotificationServiceDefaultImpl();
+    NotificationService notificationService;
 
-    public RenotifyService() throws IOException {
+    public RemoteWatchService(NotificationService notificationService) throws IOException {
+        this.notificationService = notificationService;
     }
 
 
@@ -26,7 +27,7 @@ public class RenotifyService extends RemoteWatchServiceGrpc.RemoteWatchServiceIm
         Path file = Paths.get(subscription.getFilePath());
         int events = subscription.getEvents();
         try {
-            this.notificationServiceDefaultImpl.add(file, events);
+            this.notificationService.add(file, events);
             GrpcNotification added = GrpcNotification
                     .newBuilder()
                     .setPendingEvents(8)
@@ -41,7 +42,7 @@ public class RenotifyService extends RemoteWatchServiceGrpc.RemoteWatchServiceIm
     public void streamNotifications(Empty request, StreamObserver<GrpcNotification> responseObserver) {
         while (true) {
             try {
-                Notification notification = this.notificationServiceDefaultImpl.get();
+                Notification notification = this.notificationService.get();
 
                 responseObserver.onNext(grpcNotification(notification));
             } catch (InterruptedException e) {
