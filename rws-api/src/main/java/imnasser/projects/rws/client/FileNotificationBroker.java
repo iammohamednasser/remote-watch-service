@@ -2,15 +2,8 @@ package imnasser.projects.rws.client;
 
 import imnasser.projects.rws.FileSubscription;
 
-import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
-/*
- * TODO - Consider making consumers part of the subscription object itself.
- */
 
 public class FileNotificationBroker {
 
@@ -38,6 +31,7 @@ public class FileNotificationBroker {
         return subscription;
     }
 
+
     public FileSubscription override(FileSubscription subscription) {
         String path = subscription.path().toString();
         this.consumers.remove(path);
@@ -64,8 +58,8 @@ public class FileNotificationBroker {
         client.streamNotifications(brokerNotificationConsumer);
     }
 
-    public List<FileSubscription> getAllSubscriptions() {
-        return this.subscriptions.values().stream().toList();
+    public Set<String> getAllSubscriptions() {
+        return this.subscriptions.keySet();
     }
 
     public List<FileNotificationConsumer> getConsumersOf(FileSubscription subscription) {

@@ -19,8 +19,12 @@ message GrpcNotification {
   int32 pendingEvents = 3;
 }
 
+message Path {
+  string path = 1;
+}
+
 service WatchService {
 
-  rpc register(GrpcFileSubscription) returns (GrpcNotification);
-  rpc streamNotifications(Empty) returns (stream GrpcNotification);
+  rpc register(Path) returns (GrpcFileSubscription);
+  rpc get(Empty) returns (stream GrpcNotification);
 }
